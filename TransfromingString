@@ -1,0 +1,32 @@
+import java.util.Scanner;
+public class TransfromingString {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your input: ");
+        String s = scanner.nextLine();
+        String result = "";
+        char previousChar = '\0';
+        int n=s.length();
+        
+        for (int i = 0; i < n; i++) 
+        {
+            char currentChar = s.charAt(i);
+
+            if (Character.isDigit(currentChar))
+            {
+               
+                int repeatCount = Character.getNumericValue(currentChar);
+                for (int j = 0; j < repeatCount - 1; j++) 
+                {  
+                    result = result+ previousChar;
+                }
+            } 
+            
+            else {
+                result = result+currentChar;
+                previousChar = currentChar; 
+            }
+        }
+    System.out.println("Transformed string: " + result);
+}
+}
