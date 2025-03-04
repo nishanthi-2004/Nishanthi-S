@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class ReverseSentence {
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        System.out.print("Enter a Sentence :");
+        String inputText=sc.nextLine();
+        String reversedText = reverseWords(inputText);
+        
+        System.out.println("Original Text: " + inputText );
+        System.out.println("Reversed Text: "+ reversedText );
+    }
+
+    public static String reverseWords(String text) {
+        String[] words = text.trim().split("\\s+");
+        StringBuilder reversed = new StringBuilder();
+        for (int i = words.length - 1; i >= 0; i--) {
+            reversed.append(words[i]).append(" ");
+        }
+        int leadingSpaces = text.indexOf(words[0]);
+        for (int i = 0; i < leadingSpaces; i++) {
+            reversed.insert(0, " ");
+        }
+        int trailingSpaces = text.length() - (leadingSpaces + text.trim().length());
+        for (int i = 0; i < trailingSpaces; i++) {
+            reversed.append(" ");
+        }
+
+        return reversed.toString().trim();
+    }
+}
+
