@@ -1,0 +1,24 @@
+class ReverseInteger {
+    public static int reverse(int x) {
+        int reverse=0;
+        while(x!= 0)
+        {
+            int digit =x%10;
+            x=x/10;
+if(reverse >Integer.MAX_VALUE /10 || (reverse == Integer.MAX_VALUE/10 && digit >Integer.MAX_VALUE %10))
+         return 0;
+if(reverse <Integer.MIN_VALUE /10 || (reverse == Integer.MIN_VALUE/10 && digit< Integer.MIN_VALUE %10))
+         return 0;
+         reverse =reverse*10+digit;
+        }
+        return reverse;
+    }
+    public static void main(String args[])
+    {
+        Scanner sc =new Scanner(System.in);
+        System.out.println("Enter An Integer");
+        int x=sc.nextInt();
+        int reversed =reverse(x);
+        System.out.println("Reversed Number :"+reversed);
+    }
+}
