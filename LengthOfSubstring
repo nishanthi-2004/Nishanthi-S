@@ -1,0 +1,29 @@
+import java.util.Scanner;
+class LengthOfSubstring {
+    public static int lengthOfLongestSubstring(String s) {
+        int maxLength=0;
+        int n=s.length();
+        for(int i=0;i<n;i++)
+        {
+            String Substring="";
+            for(int j=i;j<n;j++)
+            {
+                if(Substring.indexOf(s.charAt(j)) != -1)
+                {
+                    break;
+                }
+                Substring =Substring+s.charAt(j) ;
+                maxLength=Math.max(maxLength,Substring.length());
+            }
+        }
+        return maxLength;
+    }
+    public static void main(String args[])
+    {
+Scanner sc=new Scanner(System.in);
+System.out.print("Enter a String :");
+String s=sc.nextLine();
+int result=lengthOfLongestSubstring(s);
+System.out.println("Lenght of the longest Subtring"+result);
+    }
+}
